@@ -3,7 +3,8 @@ namespace SpriteKind {
     export const background_stuff = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.assistant, function (sprite, otherSprite) {
-    game.over(true, effects.bubbles)
+    game.splash("You destroyed the assistant! Time to defeat the Boss!")
+    info.changeScoreBy(1)
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     meanmissile = sprites.createProjectileFromSprite(assets.image`meanieMissile`, cannonMeanie, -50, 0)
@@ -16,11 +17,13 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, ot
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     game.over(true, effects.bubbles)
+    info.changeScoreBy(999999)
 })
 let heromissile: Sprite = null
 let meanmissile: Sprite = null
 let cannonMeanie: Sprite = null
 let cannonHero: Sprite = null
+info.setScore(0)
 let speed = game.askForNumber("Input villain's speed in seconds.", 2)
 speed = speed * 1000
 game.splash("Input Success!")
