@@ -96,5 +96,5 @@ game.onUpdateInterval(speed, function () {
     cannonMeanie.setPosition(meanie.x - 10, meanie.y)
 })
 forever(function () {
-    music.playMelody("C5 G E A F D C5 B ", 200)
+    music.playMelody("C5 G B A F A C5 B ", 120)
 })
